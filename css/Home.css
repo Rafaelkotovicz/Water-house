@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body{
+  background-color: #F0F9FF;
+}
 header {
   width: 100%;
   display: flex;
@@ -36,7 +39,7 @@ header {
   }
 }
 .logo {
-  width: 60px;
+  width: 140px;
 }
 .secao1 {
   background-image: url(../assets/secao1.1.png);
@@ -58,6 +61,37 @@ header {
 .divCards {
   display: flex;
   flex-wrap: wrap;
+  background-size: cover;
   padding: 32px 20px;
   margin: 40px 0px 120px;
+}
+.card {
+  width: 32%;
+  padding: 32px 20px;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px 0px 4px;
+  }
+}
+.secao2{
+  align-items: center;
+  position: relative;
+}
+.imagens {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  margin: 52px 0px 80px;
+  gap: 8px 0.5%;
+
+  img {
+    width: 24.5%;
+    filter: saturate(0);
+    transition: all .3s;
+    &:hover{
+        filter: saturate(1);
+    }
+  }
 }

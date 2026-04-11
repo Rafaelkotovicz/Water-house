@@ -1,119 +1,244 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>WaterHouse - Aluguel de Imóveis</title>
     <link rel="stylesheet" href="../css/Home.css" />
   </head>
   <body>
-    <header>
-      <img
-        class="logo"
-        src="../assets/logo-water-house-removebg-preview.png"
-        alt="logo-water-house"
-      />
-      <nav>
+    <header id="cabecalho">
+      <div class="logo-container">
+        <img
+          src="../assets/logo-water-house-removebg-preview.png"
+          alt="Logo WaterHouse"
+          class="logo"
+        />
+      </div>
+
+      <nav class="menu-navegacao">
         <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Imóveis</a></li>
-          <li><a href="#">Como Funciona</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#imoveis">Imóveis</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
-      <div>
-        <button class="botoes">+ Anunciar Imóvel</button>
-        <button class="botoes">Entrar</button>
+
+      <div class="botoes-acao">
+        <a href="anunciar.html" class="btn-outline">+ Anunciar Imóvel</a>
+        <a href="Login.html" class="btn-primary">Entrar</a>
       </div>
     </header>
-    <!--Primeira seção-->
-    <section class="secao1">
-      <div class="textos1">
-        <h1>O melhor da vida à beira-mar</h1>
-        <p>
-          Descubra imóveis incríveis em destinos litorâneos por todo o Brasil.
-          Alugue com segurança e viva momentos inesquecíveis.
+
+    <main>
+      <section id="inicio" class="secao-hero">
+        <div class="conteudo-hero">
+          <span class="tag-topo">O melhor da vida à beira-mar</span>
+          <h1>Encontre seu lar perfeito à beira-mar</h1>
+          <p>
+            Descubra imóveis incríveis em destinos litorâneos por todo o Brasil.
+            Alugue com segurança e viva momentos inesquecíveis.
+          </p>
+
+          <div class="barra-busca">
+            <input type="text" placeholder="Localização" />
+            <input type="text" placeholder="Preço Mínimo" />
+            <input type="text" placeholder="Preço Máximo" />
+            <button class="btn-buscar">Buscar Imóveis</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="imoveis" class="secao-imoveis">
+        <h2>Imóveis Disponíveis</h2>
+        <div class="grid-imoveis">
+          <div class="card-imovel">
+            <img
+              src="../assets/casa1.png"
+              alt="Casa na Praia"
+              class="img-imovel"
+            />
+            <div class="info-imovel">
+              <span class="tag-tipo">Casa</span>
+              <h3>Casa de Praia Paradisíaca</h3>
+              <p class="localizacao">Florianópolis, SC</p>
+              <p class="preco">R$ 8.500 <span class="diaria">/ mês</span></p>
+              <button
+                class="btn-detalhes"
+                onclick="
+                  abrirModal(
+                    'Casa de Praia Paradisíaca',
+                    'Florianópolis, SC',
+                    'R$ 8.500',
+                    './assets/casa1.jpg',
+                  )
+                "
+              >
+                Ver Detalhes
+              </button>
+            </div>
+          </div>
+
+          <div class="card-imovel">
+            <img
+              src="../assets/casa1.png"
+              alt="Apartamento Vista Mar"
+              class="img-imovel"
+            />
+            <div class="info-imovel">
+              <span class="tag-tipo">Apartamento</span>
+              <h3>Apartamento Vista Mar</h3>
+              <p class="localizacao">Balneário Camboriú, SC</p>
+              <p class="preco">R$ 5.800 <span class="diaria">/ mês</span></p>
+              <button
+                class="btn-detalhes"
+                onclick="
+                  abrirModal(
+                    'Apartamento Vista Mar',
+                    'Balneário Camboriú, SC',
+                    'R$ 5.800',
+                    './assets/image_418fc1.jpg',
+                  )
+                "
+              >
+                Ver Detalhes
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="secao-como-funciona">
+        <span class="tag-secao">COMO FUNCIONA</span>
+        <h2>Alugue em 4 passos simples</h2>
+        <p class="subtitulo-secao">
+          Processo rápido, seguro e transparente para encontrar seu imóvel
+          ideal.
         </p>
+
+        <div class="container-passos">
+          <div class="linha-conectora"></div>
+
+          <div class="grid-passos">
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">01</span>
+                🔍
+              </div>
+              <h3>Busque o imóvel</h3>
+              <p>
+                Use nossos filtros avançados para encontrar o imóvel perfeito
+                por localização, preço e tipo.
+              </p>
+            </div>
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">02</span>
+                📞
+              </div>
+              <h3>Entre em contato</h3>
+              <p>
+                Converse diretamente com o proprietário e tire todas as suas
+                dúvidas sobre o imóvel.
+              </p>
+            </div>
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">03</span>
+                ✍️
+              </div>
+              <h3>Assine o contrato</h3>
+              <p>
+                Finalize o aluguel com segurança através de nossa plataforma com
+                contrato digital.
+              </p>
+            </div>
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">04</span>
+                🏠
+              </div>
+              <h3>Aproveite!</h3>
+              <p>
+                Receba as chaves e aproveite seu novo lar à beira-mar com toda a
+                tranquilidade.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner-anuncio">
+          <div class="texto-banner">
+            <h3>Tem um imóvel para alugar?</h3>
+            <p>
+              Cadastre seu imóvel gratuitamente e alcance milhares de
+              interessados.
+            </p>
+          </div>
+          <a href="#" class="btn-branco">Saiba Mais</a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contato" class="rodape">
+      <div class="curva-rodape"></div>
+      <div class="conteudo-rodape">
+        <div class="coluna-rodape sobre-waterhouse">
+          <img
+            src="../assets/logo-water-house-removebg-preview.png"
+            alt="Logo WaterHouse"
+            class="logo-rodape"
+          />
+          <p>
+            Conectando pessoas aos melhores imóveis à beira-mar do Brasil com
+            segurança e praticidade.
+          </p>
+          <div class="redes-sociais">
+            <a href="#" class="icone-social">f</a>
+            <a href="#" class="icone-social">ig</a>
+            <a href="#" class="icone-social">X</a>
+          </div>
+        </div>
+
+        <div class="coluna-rodape">
+          <h3>Navegação</h3>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#imoveis">Imóveis</a></li>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="coluna-rodape">
+          <h3>Suporte</h3>
+          <ul>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Segurança</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="coluna-rodape info-contato">
+          <h3>Contato</h3>
+          <p>📞 (11) 99999-8888</p>
+          <p>✉️ contato@waterhouse.com.br</p>
+          <p>📍 São Paulo, SP - Brasil</p>
+        </div>
       </div>
-      <div class="busca">
-        <input type="text">
-        <input type="number">
-        <input type="number">
-        <input type="search">
-        <input type="submit">
+
+      <div class="direitos-rodape">
+        <p>&copy; 2026 Waterhouse. Todos os direitos reservados.</p>
+        <p>Feito com 🌊 para os amantes do mar</p>
       </div>
-    </section>
-    <!--Segunda seção-->
-    <section class="secao2">
-      <h2>Imóveis disponíveis</h2>
-      <div class="divCards">
-        <div class="card">
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-        </div>
-        <div class="card">
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-        </div>
-        <div class="card">
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-        </div>
-        <div class="card">
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-        </div>
-        <div class="card">
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-        </div>
-        <div class="card">
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!--Terceira seção-->
-    <section class="secao3">
-      <h2>Como funciona</h2>
-      <h1>Alugue em 4 passos simples</h1>
-      <p>Processo rápido, seguro e trasnparente para encontrar seu imóvel ideal</p>
-    </section>
+    </footer>
+
+    <div id="modal-imovel" class="modal-overlay"></div>
+
+    <script src="../js/Home.js"></script>
   </body>
 </html>

@@ -1,19 +1,22 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>WaterHouse - Aluguel de Imóveis</title>
     <link rel="stylesheet" href="../css/Home.css" />
   </head>
   <body>
-    <header>
-      <img
-        class="logo"
-        src="../assets/logo-water-house-removebg-preview.png"
-        alt="logo-water-house"
-      />
-      <nav>
+    <header id="cabecalho">
+      <div class="logo-container">
+        <img
+          src="../assets/logo-water-house-removebg-preview.png"
+          alt="Logo WaterHouse"
+          class="logo"
+        />
+      </div>
+
+      <nav class="menu-navegacao">
         <ul>
           <li><a href="Home.html">Início</a></li>
           <li><a href="#imoveis">Imóveis</a></li>
@@ -21,18 +24,110 @@
           <li><a href="#">Contato</a></li>
         </ul>
       </nav>
-      <div>
-        <button class="botoes">+ Anunciar Imóvel</button>
-        <button class="botoes">Entrar</button>
+
+      <div class="botoes-acao">
+        <a href="#" class="btn-outline" onclick="abrirModalAnuncio(event)"
+          >+ Anunciar Imóvel</a
+        >
+        <a href="Login.html" class="btn-primary">Entrar</a>
       </div>
     </header>
-    <!--Primeira seção-->
-    <section class="secao1">
-      <div class="textos1">
-        <h1>O melhor da vida à beira-mar</h1>
-        <p>
-          Descubra imóveis incríveis em destinos litorâneos por todo o Brasil.
-          Alugue com segurança e viva momentos inesquecíveis.
+
+    <main>
+      <section id="inicio" class="secao-hero">
+        <div class="conteudo-hero">
+          <span class="tag-topo">O melhor da vida à beira-mar</span>
+          <h1>Encontre seu lar perfeito à beira-mar</h1>
+          <p>
+            Descubra imóveis incríveis em destinos litorâneos por todo o Brasil.
+            Alugue com segurança e viva momentos inesquecíveis.
+          </p>
+
+          <div class="barra-busca">
+            <input type="text" id="busca-local" placeholder="Localização" />
+            <input type="number" id="busca-min" placeholder="Preço Mínimo" />
+            <input type="number" id="busca-max" placeholder="Preço Máximo" />
+            <button class="btn-buscar" onclick="buscarImoveis()">
+              Buscar Imóveis
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="imoveis" class="secao-imoveis">
+        <h2>Imóveis Disponíveis</h2>
+
+        <div class="grid-imoveis" id="grid-imoveis">
+          <div
+            class="card-imovel"
+            data-preco="8500"
+            data-local="florianópolis sc"
+          >
+            <img
+              src="../assets/casa1.png"
+              alt="Casa na Praia"
+              class="img-imovel"
+            />
+            <div class="info-imovel">
+              <span class="tag-tipo">Casa</span>
+              <h3>Casa de Praia Paradisíaca</h3>
+              <p class="localizacao">Florianópolis, SC</p>
+              <p class="preco">R$ 8.500 <span class="diaria">/ mês</span></p>
+              <button
+                class="btn-detalhes"
+                onclick="
+                  abrirModal(
+                    'Casa de Praia Paradisíaca',
+                    'Florianópolis, SC',
+                    'R$ 8.500',
+                    '../assets/casa1.png',
+                  )
+                "
+              >
+                Ver Detalhes
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="card-imovel"
+            data-preco="5800"
+            data-local="balneário camboriú sc"
+          >
+            <img
+              src="../assets/casa1.png"
+              alt="Apartamento Vista Mar"
+              class="img-imovel"
+            />
+            <div class="info-imovel">
+              <span class="tag-tipo">Apartamento</span>
+              <h3>Apartamento Vista Mar</h3>
+              <p class="localizacao">Balneário Camboriú, SC</p>
+              <p class="preco">R$ 5.800 <span class="diaria">/ mês</span></p>
+              <button
+                class="btn-detalhes"
+                onclick="
+                  abrirModal(
+                    'Apartamento Vista Mar',
+                    'Balneário Camboriú, SC',
+                    'R$ 5.800',
+                    '../assets/image_418fc1.jpg',
+                  )
+                "
+              >
+                Ver Detalhes
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="secao-como-funciona">
+        <span class="tag-secao">COMO FUNCIONA</span>
+        <h2>Alugue em 4 passos simples</h2>
+        <p class="subtitulo-secao">
+          Processo rápido, seguro e transparente para encontrar seu imóvel
+          ideal.
         </p>
       </div>
       <div class="busca">
@@ -91,10 +186,8 @@
           <h3>Chalé pé na areia</h3>
           <p class="card-preco">A partir de R$ 4.100 / mês</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
+            Conectando pessoas aos melhores imóveis à beira-mar do Brasil com
+            segurança e praticidade.
           </p>
           <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>

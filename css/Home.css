@@ -1,84 +1,238 @@
+/* ==========================================================================
+   VARIÁVEIS GERAIS E RESET
+   ========================================================================== */
+:root {
+  --primary-color: #006eb8;
+  --primary-hover: #005591;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --bg-light: #f4f9fd;
+  --white: #ffffff;
+  --border-radius: 8px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
 body {
-  background-color: #f0f9ff;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
-header {
-  width: 100%;
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
+#cabecalho {
   display: flex;
-  padding: 1%;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  background-color: white;
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  ul {
-    display: flex;
-    gap: 20px;
-    list-style-type: none;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+  padding: 15px 5%;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-.botoes {
+
+.logo-container .logo {
+  height: 40px;
+}
+
+.menu-navegacao ul {
+  display: flex;
+  gap: 30px;
+}
+
+.menu-navegacao a {
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: color 0.3s;
+}
+
+.menu-navegacao a:hover {
+  color: var(--primary-color);
+}
+
+.botoes-acao {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-outline {
+  padding: 8px 20px;
+  border: 1px solid var(--text-dark);
   border-radius: 20px;
-  padding: 10px;
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
+  font-weight: 500;
+  transition: all 0.3s;
 }
-.logo {
-  width: 140px;
+
+.btn-outline:hover {
+  background-color: var(--text-dark);
+  color: var(--white);
 }
-.secao1 {
-  background-image: url(../assets/secao1.1.png);
-  color: aliceblue;
+
+.btn-primary {
+  padding: 8px 25px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   SEÇÃO HERO (INÍCIO) - COM SOMBRAS NO TEXTO
+   ========================================================================== */
+.secao-hero {
+  /* Lembre-se de verificar se o nome da sua imagem está correto aqui! */
+  background-image: url("../assets/secao1.1.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 15vh;
-}
-.secao1 h1,
-.secao1 p {
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 1.5);
-}
-.textos1 {
+  color: var(--white);
+  text-align: center;
+  padding: 100px 20px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
 }
-.busca{
+
+.tag-topo {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  /* Sombra para facilitar a leitura */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.conteudo-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  /* Sombra para facilitar a leitura */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.conteudo-hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  /* Sombra para facilitar a leitura */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Barra de Busca */
+.barra-busca {
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 30px;
   display: flex;
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
   justify-content: center;
-  margin-top: 5%;
 }
-.divCards {
+
+.barra-busca input {
+  border: 1px solid #ddd;
+  padding: 12px 20px;
+  border-radius: 20px;
+  outline: none;
+  flex: 1;
+}
+
+.btn-buscar {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-buscar:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   SEÇÃO IMÓVEIS DISPONÍVEIS - AJUSTE PARA 3 COLUNAS
+   ========================================================================== */
+.secao-imoveis {
+  padding: 60px 5%;
+}
+
+.secao-imoveis h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.grid-imoveis {
+  /* Usando Flexbox para alinhar os cards lado a lado */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  background-size: cover;
-  padding: 32px 20px;
-  margin: 40px 0px 120px;
 }
-.card {
-  width: 28%;
+
+.card-imovel {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+
+  /* Tamanho de 30% para caberem 3 lado a lado com segurança */
+  width: 30%;
+  min-width: 300px;
+}
+
+.card-imovel:hover {
+  transform: translateY(-5px);
+}
+
+.img-imovel {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info-imovel {
   padding: 20px;
-  background-color: white;
-  border: 1px solid #e0e0e0;
+}
+
+.tag-tipo {
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+  padding: 4px 10px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-align: center;
@@ -137,42 +291,387 @@ header {
     }
   }
 }
-.secao2 {
-  position: relative;
-  background-color: #f0f9ff;
 
-  h2 {
-    font-size: 40px;
-    margin-top: 60px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #007bff;
-  }
+.info-imovel h3 {
+  margin: 10px 0 5px 0;
+  font-size: 1.2rem;
 }
-.imagens {
-  display: flex;
-  flex-wrap: wrap;
-  background-size: cover;
-  margin: 52px 0px 80px;
-  gap: 8px 0.5%;
 
-  img {
-    width: 24.5%;
-    filter: saturate(0);
-    transition: all 0.3s;
-    &:hover {
-      filter: saturate(1);
-    }
-  }
+.localizacao {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
 }
-.secao3 {
+
+.preco {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.diaria {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--text-light);
+}
+
+.btn-detalhes {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-detalhes:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   SEÇÃO COMO FUNCIONA
+   ========================================================================== */
+.secao-como-funciona {
+  background-color: var(--white);
+  padding: 80px 5%;
   text-align: center;
-  align-items: center;
-  background-color: #ffffff;
-  justify-content: center;
+}
 
-  h2{
-  margin-top: 60px;
+.tag-secao {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.secao-como-funciona h2 {
+  font-size: 2.2rem;
+  margin: 10px 0;
+}
+
+.subtitulo-secao {
+  color: var(--text-light);
+  margin-bottom: 50px;
+}
+
+.container-passos {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 60px auto;
+}
+
+.linha-conectora {
+  position: absolute;
+  top: 40px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #e0f0ff;
+  z-index: 1;
+}
+
+.grid-passos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.passo {
+  background-color: var(--white);
+  padding: 20px 10px;
+}
+
+.icone-passo {
+  width: 80px;
+  height: 80px;
+  background-color: var(--bg-light);
+  border: 3px solid #e0f0ff;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  position: relative;
+}
+
+.badge-numero {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.passo h3 {
+  font-size: 1.1rem;
   margin-bottom: 10px;
+}
+
+.passo p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Banner de Anúncio */
+.banner-anuncio {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.texto-banner h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.btn-branco {
+  background-color: var(--white);
+  color: var(--primary-color);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.btn-branco:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   RODAPÉ E REDES SOCIAIS
+   ========================================================================== */
+.rodape {
+  background-color: #005b9f;
+  color: var(--white);
+  padding: 60px 5% 20px 5%;
+  position: relative;
+}
+
+.conteudo-rodape {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.logo-rodape {
+  height: 40px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 15px;
+}
+
+.sobre-waterhouse p {
+  color: #cce0f5;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.rodape h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.rodape ul li {
+  margin-bottom: 10px;
+}
+
+.rodape ul a {
+  color: #cce0f5;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.rodape ul a:hover {
+  color: var(--white);
+}
+
+.info-contato p {
+  color: #cce0f5;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Ícones Sociais Centralizados */
+.redes-sociais {
+  display: flex;
+  gap: 15px;
+}
+
+.icone-social {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.icone-social:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.icone-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Direitos Autorais */
+.direitos-rodape {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #a3cbf5;
+}
+
+/* ==========================================================================
+   MODAIS
+   ========================================================================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-conteudo {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: center;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.modal-conteudo img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.form-cadastro {
+  text-align: left;
+}
+
+.form-cadastro h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.grupo-input {
+  margin-bottom: 15px;
+}
+
+.grupo-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.grupo-input input,
+.grupo-input select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Telas menores)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .menu-navegacao {
+    display: none;
+  }
+
+  .conteudo-rodape {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .redes-sociais {
+    justify-content: center;
+  }
+
+  .grid-passos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .linha-conectora {
+    display: none;
+  }
+
+  .banner-anuncio {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .direitos-rodape {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-imovel {
+    width: 45%; /* Muda para 2 colunas em tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-passos {
+    grid-template-columns: 1fr;
+  }
+
+  .card-imovel {
+    width: 100%; /* Muda para 1 coluna no celular */
   }
 }

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Anuncie seu imóvel na WaterHouse e encontre o inquilino ou comprador ideal." />
+    <title>Anunciar Imóvel - WaterHouse</title>
+    <link rel="stylesheet" href="../css/Home.css" />
+    <link rel="stylesheet" href="../css/Anunciar.css" />
+  </head>
+  <body>
+    <header id="cabecalho">
+      <div class="logo-container">
+        <a href="Home.html" aria-label="Voltar para a página inicial">
+          <figure style="margin: 0;">
+            <img src="../assets/logo-water-house-removebg-preview.png" alt="Logo WaterHouse" class="logo" loading="lazy" />
+          </figure>
+        </a>
+      </div>
+      <nav class="menu-navegacao">
+        <ul>
+          <li><a href="Home.html#inicio">Início</a></li>
+          <li><a href="Home.html#imoveis">Imóveis</a></li>
+          <li><a href="Home.html#como-funciona">Como Funciona</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="botoes-acao">
+        <a href="Login.html" class="btn-primary">Entrar</a>
+      </div>
+    </header>
+
+    <main class="main-anunciar">
+      <section class="container-anuncio">
+        <div class="cabecalho-form">
+          <span class="tag-secao">PORTFÓLIO WATERHOUSE</span>
+          <h1>Destaque seu imóvel</h1>
+          <p>Preencha os dados abaixo. Campos com <strong>*</strong> são obrigatórios.</p>
+        </div>
+
+        <form id="form-anunciar" class="form-card" novalidate>
+          <fieldset class="form-section">
+            <legend>Informações Principais</legend>
+            <div class="grupo-input">
+              <label for="titulo">Título do Anúncio *</label>
+              <input type="text" id="titulo" placeholder="Ex: Cobertura Duplex com Vista Panorâmica" required />
+              <span class="msg-erro">O título é obrigatório para atrair interessados.</span>
+            </div>
+
+            <div class="linha-form">
+              <div class="grupo-input">
+                <label for="tipo">Categoria *</label>
+                <select id="tipo" required>
+                  <option value="" disabled selected>Selecione...</option>
+                  <option value="casa">Casa</option>
+                  <option value="apartamento">Apartamento</option>
+                  <option value="pousada">Pousada / Veraneio</option>
+                  <option value="terreno">Terreno</option>
+                </select>
+                <span class="msg-erro">Selecione uma categoria.</span>
+              </div>
+              <div class="grupo-input">
+                <label for="preco">Valor Mensal (R$) *</label>
+                <input type="text" id="preco" placeholder="R$ 0,00" required />
+                <span class="msg-erro">Informe o valor do aluguel/venda.</span>
+              </div>
+            </div>
+
+            <div class="grupo-input">
+              <label for="localizacao">Endereço / Região *</label>
+              <input type="text" id="localizacao" placeholder="Ex: Bairro Jardins, Aracaju - SE" required />
+              <span class="msg-erro">A localização exata aumenta a confiança.</span>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend>Diferenciais <span class="label-opcional">(Opcional)</span></legend>
+            <div class="grid-amenities">
+              <label class="checkbox-label"><input type="checkbox" name="amenities" value="piscina"> Piscina</label>
+              <label class="checkbox-label"><input type="checkbox" name="amenities" value="garagem"> Garagem</label>
+              <label class="checkbox-label"><input type="checkbox" name="amenities" value="churrasqueira"> Churrasqueira</label>
+              <label class="checkbox-label"><input type="checkbox" name="amenities" value="mobiliado"> Mobiliado</label>
+              <label class="checkbox-label"><input type="checkbox" name="amenities" value="pet-friendly"> Aceita Pets</label>
+              <label class="checkbox-label"><input type="checkbox" name="amenities" value="academia"> Academia</label>
+            </div>
+            
+            <div class="grupo-input mt-20">
+              <label for="descricao">Descrição Completa <span class="label-opcional">(Opcional)</span></label>
+              <textarea id="descricao" rows="4" placeholder="Conte mais sobre o espaço, iluminação e vizinhança..."></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section no-border">
+            <legend>Galeria de Fotos *</legend>
+            
+            <div class="upload-area-gallery mt-20" id="drop-zone">
+                <div class="upload-icon-small">📸</div>
+                <p>Clique aqui para escolher suas fotos</p>
+                <input type="file" id="foto-upload" accept="image/*" multiple class="hidden-input" />
+                <span class="msg-erro" id="erro-foto">Insira ao menos uma imagem.</span>
+            </div>
+            
+            <div id="preview-container" class="preview-grid mt-20"></div>
+          </fieldset>
+
+          <button type="submit" class="btn-primary btn-largo" id="btn-submit">Publicar Anúncio Agora</button>
+        </form>
+      </section>
+    </main>
+
+    <footer id="contato" class="rodape">
+      <div class="curva-rodape"></div>
+      </footer>
+    <script src="../js/Anunciar.js"></script>
+  </body>
+</html>

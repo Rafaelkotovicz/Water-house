@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================================
+   1. ESTILIZAÇÃO GERAL E FUNDO
+   ========================================= */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-image: url('../assets/secao1.1.png'); /* Atualize o caminho se necessário */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(25px); 
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    overflow: hidden;
+}
+
+/* =========================================
+   2. TOPO E TÍTULOS
+   ========================================= */
+.topo {
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px 16px 0 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.topo h1 { font-size: 16px; margin: 10px 0 0; color: #444; font-weight: 500; } 
+.topo h2 { font-size: 22px; margin: 5px 0; color: #111; font-weight: 700; }
+
+.icone-usuario {
+    background-color: #1a73e8;
+    border-radius: 16px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.separador { width: 100%; border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 0; }
+
+/* =========================================
+   3. ÁREA DO FORMULÁRIO E TIPOGRAFIA
+   ========================================= */
+.form-section {
+    width: 100%;
+    padding: 25px; 
+    box-sizing: border-box;
+    text-align: center; /* Centraliza o texto de instrução */
+}
+
+/* Texto de instrução mais elegante e legível */
+.instrucao {
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.label-email { 
+    font-weight: 600; 
+    font-size: 14px; 
+    margin: 0 0 8px 0; 
+    color: #333;
+    text-align: left; /* Mantém o label do campo alinhado à esquerda */
+}
+
+input, button {
+    font-family: "Montserrat", sans-serif; 
+}
+
+input {
+    width: 100%;
+    padding: 14px 15px; 
+    border: 1px solid #d1d5db; 
+    background-color: #f8fafc; 
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111; 
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0288D1; 
+}
+
+input::placeholder { color: #9ca3af; font-weight: 400; } 
+
+/* Botão grandão e imponente, igual ao do Login */
+.BotaoEnviar {
+    padding: 15px;
+    background: linear-gradient(135deg, #0288D1, #0277b8); 
+    width: 100%;
+    margin-top: 20px; 
+    border-radius: 24px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(2, 136, 209, 0.3); 
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.BotaoEnviar:hover { 
+    background: linear-gradient(135deg, #0277b8, #01579b); 
+    box-shadow: 0 6px 14px rgba(2, 136, 209, 0.4);
+}
+.BotaoEnviar:active { transform: translateY(2px); } 
+
+/* =========================================
+   4. RODAPÉ (VOLTAR AO LOGIN)
+   ========================================= */
+.fundo { 
+    background: rgba(255,255,255,0.6); 
+    width: 100%; 
+    padding: 18px; 
+    border-radius: 0 0 16px 16px; 
+    text-align: center; 
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.fundo p { margin: 0; font-size: 14px; color: #444; font-weight: 500;}
+.fundo h4 { margin: 6px 0 0 0; }
+
+.fundo a { 
+    color: #0288D1; 
+    font-weight: 700; 
+    font-size: 15px; 
+    text-decoration: none;
+    transition: color 0.3s;
+} 
+
+.fundo a:hover { 
+    color: #01579b; 
+    text-decoration: underline; 
+}
+/* =========================================
+   5. MENSAGENS DE FEEDBACK (ERRO E SUCESSO)
+   ========================================= */
+.mensagem-sucesso {
+    color: #059669; /* Verde esmeralda forte */
+    background-color: #d1fae5; /* Fundo verde clarinho */
+    border: 1px solid #34d399; /* Bordinha verde */
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+    animation: fadeIn 0.3s ease; /* Efeito suave ao aparecer */
+}
+
+.mensagem-erro {
+    color: #e11d48;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: block;
+    text-align: left;
+}
+
+/* Animação para a mensagem aparecer suavemente */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.mensagem-sucesso {
+    color: #059669; 
+    background-color: #d1fae5; 
+    border: 1px solid #34d399; 
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}

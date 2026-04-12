@@ -1,40 +1,107 @@
-// FUNÇÃO PARA ABRIR O MODAL
-// Ela recebe 4 informações do HTML quando o botão 'Ver Detalhes' é clicado
+/* =====================================================
+   1. FUNÇÕES DE ABRIR E FECHAR MODAIS
+===================================================== */
+
 function abrirModal(titulo, localizacao, preco, imagem) {
-  // 1. Encontra os elementos escondidos lá no Modal do HTML usando seus IDs
-  const modal = document.getElementById("modal-imovel");
-  const tituloModal = document.getElementById("modal-titulo");
-  const localModal = document.getElementById("modal-localizacao");
-  const precoModal = document.getElementById("modal-preco");
-  const imgModal = document.getElementById("modal-img");
+  document.getElementById("modal-titulo").innerText = titulo;
+  document.getElementById("modal-localizacao").innerText = localizacao;
+  document.getElementById("modal-preco").innerText = preco;
+  document.getElementById("modal-img").src = imagem;
 
-  // 2. Substitui o texto vazio do modal pelas informações que vieram do botão clicado
-  tituloModal.innerText = titulo;
-  localModal.innerText = localizacao;
-  precoModal.innerText = preco;
-  imgModal.src = imagem; // Troca o caminho da imagem
-
-  // 3. Muda a configuração CSS de "display: none" para "display: flex"
-  // Isso é o que faz o modal aparecer na tela!
-  modal.style.display = "flex";
+  document.getElementById("modal-imovel").style.display = "flex";
 }
 
-// FUNÇÃO PARA FECHAR O MODAL
-function fecharModal() {
-  // 1. Pega o modal inteiro
-  const modal = document.getElementById("modal-imovel");
-
-  // 2. Devolve para "display: none", fazendo ele sumir da tela
-  modal.style.display = "none";
+function abrirModalAnuncio(evento) {
+  evento.preventDefault();
+  document.getElementById("modal-cadastro").style.display = "flex";
 }
 
-// BÔNUS DE UX: Fechar o modal clicando fora dele (na parte preta transparente)
+function fecharModal(idModal) {
+  document.getElementById(idModal).style.display = "none";
+}
+
 window.onclick = function (evento) {
-  const modal = document.getElementById("modal-imovel");
+  const modalImovel = document.getElementById("modal-imovel");
+  const modalCadastro = document.getElementById("modal-cadastro");
 
-  // Se o lugar que o usuário clicou for exatamente o fundo preto (modal-overlay)
-  if (evento.target == modal) {
-    // Executa a função de fechar
-    fecharModal();
+  if (evento.target == modalImovel) {
+    fecharModal("modal-imovel");
+  }
+  if (evento.target == modalCadastro) {
+    fecharModal("modal-cadastro");
   }
 };
+
+/* =====================================================
+   2. LÓGICA DE BUSCA (FILTROS)
+===================================================== */
+function buscarImoveis() {
+  const termoLocal = document.getElementById("busca-local").value.toLowerCase();
+  const valorMinimo =
+    parseFloat(document.getElementById("busca-min").value) || 0;
+  const valorMaximo =
+    parseFloat(document.getElementById("busca-max").value) || Infinity;
+
+  const cards = document.querySelectorAll(".card-imovel");
+
+  cards.forEach((card) => {
+    const localCard = card.getAttribute("data-local").toLowerCase();
+    const precoCard = parseFloat(card.getAttribute("data-preco"));
+
+    const bateLocal = localCard.includes(termoLocal);
+    const batePreco = precoCard >= valorMinimo && precoCard <= valorMaximo;
+
+    if (bateLocal && batePreco) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+/* =====================================================
+   3. LÓGICA DE CRIAR NOVO ANÚNCIO
+===================================================== */
+function criarAnuncio() {
+  const titulo = document.getElementById("novo-titulo").value;
+  const tipo = document.getElementById("novo-tipo").value;
+  const local = document.getElementById("novo-local").value;
+  const preco = document.getElementById("novo-preco").value;
+  let imagem = document.getElementById("novo-img").value;
+
+  if (titulo === "" || local === "" || preco === "") {
+    alert("Por favor, preencha Título, Localização e Preço!");
+    return;
+  }
+
+  if (imagem === "") {
+    imagem =
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500";
+  }
+
+  const precoFormatado = "R$ " + parseFloat(preco).toLocaleString("pt-BR");
+
+  const novoCardHTML = `
+        <div class="card-imovel" data-preco="${preco}" data-local="${local.toLowerCase()}">
+            <img src="${imagem}" alt="${titulo}" class="img-imovel" />
+            <div class="info-imovel">
+                <span class="tag-tipo">${tipo}</span>
+                <h3>${titulo}</h3>
+                <p class="localizacao">${local}</p>
+                <p class="preco">${precoFormatado} <span class="diaria">/ mês</span></p>
+                <button class="btn-detalhes" onclick="abrirModal('${titulo}', '${local}', '${precoFormatado}', '${imagem}')">Ver Detalhes</button>
+            </div>
+        </div>
+    `;
+
+  const gridImoveis = document.getElementById("grid-imoveis");
+  gridImoveis.insertAdjacentHTML("beforeend", novoCardHTML);
+
+  document.getElementById("novo-titulo").value = "";
+  document.getElementById("novo-local").value = "";
+  document.getElementById("novo-preco").value = "";
+  document.getElementById("novo-img").value = "";
+
+  fecharModal("modal-cadastro");
+  alert("Anúncio criado com sucesso!");
+}

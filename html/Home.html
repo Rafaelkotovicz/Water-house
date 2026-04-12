@@ -15,9 +15,9 @@
       />
       <nav>
         <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Imóveis</a></li>
-          <li><a href="#">Como Funciona</a></li>
+          <li><a href="Home.html">Início</a></li>
+          <li><a href="#imoveis">Imóveis</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
           <li><a href="#">Contato</a></li>
         </ul>
       </nav>
@@ -44,76 +44,119 @@
       </div>
     </section>
     <!--Segunda seção-->
-    <section class="secao2">
+    <section class="secao2" id="imoveis">
       <h2>Imóveis disponíveis</h2>
       <div class="divCards">
-        <div class="card">
+        <div
+          class="card"
+          data-titulo="Casa à beira-mar — Atalaia"
+          data-local="Aracaju, SE"
+          data-total="3200"
+        >
           <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
+          <h3>Casa à beira-mar — Atalaia</h3>
+          <p class="card-preco">A partir de R$ 3.200 / mês</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
             nobis molestias aperiam expedita voluptatum exercitationem nulla,
             voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
           </p>
+          <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>
-        <div class="card">
+        <div
+          class="card"
+          data-titulo="Apartamento vista mar"
+          data-local="Maceió, AL"
+          data-total="1850.9"
+        >
           <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
+          <h3>Apartamento vista mar</h3>
+          <p class="card-preco">A partir de R$ 1.850,90 / mês</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
             nobis molestias aperiam expedita voluptatum exercitationem nulla,
             voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
           </p>
+          <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>
-        <div class="card">
+        <div
+          class="card"
+          data-titulo="Chalé pé na areia"
+          data-local="Porto de Galinhas, PE"
+          data-total="4100"
+        >
           <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
+          <h3>Chalé pé na areia</h3>
+          <p class="card-preco">A partir de R$ 4.100 / mês</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
             nobis molestias aperiam expedita voluptatum exercitationem nulla,
             voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
           </p>
+          <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>
-        <div class="card">
+        <div
+          class="card"
+          data-titulo="Casa com piscina"
+          data-local="Florianópolis, SC"
+          data-total="2800"
+        >
           <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
+          <h3>Casa com piscina</h3>
+          <p class="card-preco">A partir de R$ 2.800 / mês</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
             nobis molestias aperiam expedita voluptatum exercitationem nulla,
             voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
           </p>
+          <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>
-        <div class="card">
+        <div
+          class="card"
+          data-titulo="Kitnet econômica"
+          data-local="Salvador, BA"
+          data-total="950"
+        >
           <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
+          <h3>Kitnet econômica</h3>
+          <p class="card-preco">A partir de R$ 950 / mês</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
             nobis molestias aperiam expedita voluptatum exercitationem nulla,
             voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
           </p>
+          <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>
-        <div class="card">
+        <div
+          class="card"
+          data-titulo="Cobertura duplex"
+          data-local="Rio de Janeiro, RJ"
+          data-total="5200"
+        >
           <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa Disponível</h3>
+          <h3>Cobertura duplex</h3>
+          <p class="card-preco">A partir de R$ 5.200 / mês</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
             nobis molestias aperiam expedita voluptatum exercitationem nulla,
             voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
           </p>
+          <button type="button" class="btn-pagamento">Ir para pagamento</button>
         </div>
       </div>
     </section>
     <!--Terceira seção-->
-    <section class="secao3">
+    <section class="secao3" id="como-funciona">
       <h2>Como funciona</h2>
       <h1>Alugue em 4 passos simples</h1>
       <p>Processo rápido, seguro e trasnparente para encontrar seu imóvel ideal</p>
     </section>
+    <script src="../js/home.js" defer></script>
   </body>
 </html>

@@ -105,6 +105,37 @@ header {
     font-weight: 500;
     margin: 20px 0px 4px;
   }
+
+  .card-preco {
+    font-size: 18px;
+    font-weight: 600;
+    color: #007bff;
+    margin: 8px 0 12px;
+  }
+
+  .btn-pagamento {
+    margin-top: 16px;
+    width: 100%;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    opacity: 0.95;
+    transition:
+      opacity 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      box-shadow: 0 4px 14px rgba(0, 123, 255, 0.35);
+      transform: translateY(-1px);
+    }
+  }
 }
 .secao2 {
   position: relative;

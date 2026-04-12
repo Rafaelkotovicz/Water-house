@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagamento | WaterHouse</title>
+    <link rel="stylesheet" href="../css/tela-pag.css" />
+  </head>
+  <body>
+    <header>
+      <a href="Home.html" class="logo-link">
+        <img
+          class="logo"
+          src="../assets/logo-water-house-removebg-preview.png"
+          alt="WaterHouse"
+        />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="Home.html">Início</a></li>
+          <li><a href="Home.html#imoveis">Imóveis</a></li>
+          <li><a href="Home.html#como-funciona">Como funciona</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="Home.html" class="botoes btn-link-header">Voltar aos imóveis</a>
+      </div>
+    </header>
+
+    <main class="pag-main">
+      <div class="pag-container">
+        <div class="property-card">
+          <h2>Resumo do imóvel</h2>
+          <p class="property-name" id="property-title">Imóvel selecionado</p>
+          <p class="property-info" id="property-location">—</p>
+
+          <div class="price-box">
+            <span>Total</span>
+            <strong id="total-price">R$ 0,00</strong>
+          </div>
+        </div>
+
+        <div class="checkout-container">
+          <form id="payment-form">
+            <h3>Pagamento</h3>
+
+            <div class="form-group">
+              <label for="card-name">Nome no cartão</label>
+              <input
+                type="text"
+                id="card-name"
+                name="ccname"
+                autocomplete="cc-name"
+                required
+                maxlength="120"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="card-number">Número do cartão</label>
+              <input
+                type="text"
+                id="card-number"
+                name="ccnumber"
+                inputmode="numeric"
+                autocomplete="cc-number"
+                maxlength="23"
+                required
+              />
+            </div>
+
+            <div class="row">
+              <div class="col-50 form-group">
+                <label for="exp-date">Validade</label>
+                <input
+                  type="text"
+                  id="exp-date"
+                  name="cc-exp"
+                  inputmode="numeric"
+                  autocomplete="cc-exp"
+                  maxlength="5"
+                  placeholder="MM/AA"
+                  required
+                />
+              </div>
+              <div class="col-50 form-group">
+                <label for="cvv">CVV</label>
+                <input
+                  type="text"
+                  id="cvv"
+                  name="cvc"
+                  inputmode="numeric"
+                  autocomplete="cc-csc"
+                  maxlength="4"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="installments">Parcelamento (sem juros até 6x)</label>
+              <select id="installments" name="installments" required></select>
+            </div>
+
+            <button type="submit" class="btn-pay">Pagar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/tela-pag.js" defer></script>
+  </body>
+</html>

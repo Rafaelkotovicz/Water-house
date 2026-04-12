@@ -1,54 +1,71 @@
-/* ================= RESET E CONFIGURAÇÕES GERAIS ================= */
+/* ==========================================================================
+   VARIÁVEIS GERAIS E RESET
+   ========================================================================== */
+:root {
+  --primary-color: #006eb8;
+  --primary-hover: #005591;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --bg-light: #f4f9fd;
+  --white: #ffffff;
+  --border-radius: 8px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background-color: #f4f9ff;
-  color: #333;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-/* ================= CABEÇALHO (HEADER) ================= */
-header {
-  background-color: white;
-  height: 80px;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
+#cabecalho {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
-  position: fixed;
+  padding: 15px 5%;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
-.logo {
-  height: 50px;
+.logo-container .logo {
+  height: 40px;
 }
 
 .menu-navegacao ul {
   display: flex;
-  list-style: none;
   gap: 30px;
 }
 
 .menu-navegacao a {
-  text-decoration: none;
-  color: #333;
   font-weight: 500;
+  color: var(--text-dark);
   transition: color 0.3s;
 }
 
 .menu-navegacao a:hover {
-  color: #0066a2;
+  color: var(--primary-color);
 }
 
 .botoes-acao {
@@ -56,103 +73,146 @@ header {
   gap: 15px;
 }
 
-.btn-outline,
-.btn-primary {
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 .btn-outline {
-  border: 1px solid #0066a2;
-  color: #0066a2;
-  background: transparent;
+  padding: 8px 20px;
+  border: 1px solid var(--text-dark);
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: var(--text-dark);
+  color: var(--white);
 }
 
 .btn-primary {
-  background-color: #0066a2;
-  color: white;
+  padding: 8px 25px;
+  background-color: var(--primary-color);
+  color: var(--white);
   border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* ================= SEÇÃO HERO (BANNER) ================= */
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   SEÇÃO HERO (INÍCIO) - COM SOMBRAS NO TEXTO
+   ========================================================================== */
 .secao-hero {
-  margin-top: 80px;
-  height: 80vh;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../assets/secao1.1.png");
+  /* Lembre-se de verificar se o nome da sua imagem está correto aqui! */
+  background-image: url("../assets/secao1.1.png");
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: var(--white);
   text-align: center;
-  color: white;
+  padding: 100px 20px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.conteudo-hero {
-  padding-bottom: 5vh;
+.tag-topo {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  /* Sombra para facilitar a leitura */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
+
 .conteudo-hero h1 {
   font-size: 3rem;
-  margin: 15px 0;
+  margin-bottom: 15px;
+  /* Sombra para facilitar a leitura */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+.conteudo-hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  /* Sombra para facilitar a leitura */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Barra de Busca */
 .barra-busca {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 30px;
   display: flex;
   gap: 10px;
-  margin-top: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+  justify-content: center;
 }
 
 .barra-busca input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 12px 20px;
+  border-radius: 20px;
+  outline: none;
   flex: 1;
 }
 
 .btn-buscar {
-  background-color: #0066a2;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white);
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 30px;
+  border-radius: 20px;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* ================= SEÇÃO IMÓVEIS ================= */
+.btn-buscar:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   SEÇÃO IMÓVEIS DISPONÍVEIS - AJUSTE PARA 3 COLUNAS
+   ========================================================================== */
 .secao-imoveis {
   padding: 60px 5%;
 }
+
 .secao-imoveis h2 {
   text-align: center;
-  color: #0066a2;
+  color: var(--primary-color);
   margin-bottom: 40px;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .grid-imoveis {
+  /* Usando Flexbox para alinhar os cards lado a lado */
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
   justify-content: center;
+  gap: 30px;
 }
 
 .card-imovel {
-  background: white;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+
+  /* Tamanho de 30% para caberem 3 lado a lado com segurança */
   width: 30%;
   min-width: 300px;
-  border-radius: 15px;
-  border: 1px solid #e0e0e0;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s;
 }
 
 .card-imovel:hover {
@@ -167,329 +227,281 @@ header {
 
 .info-imovel {
   padding: 20px;
-  text-align: center;
 }
+
 .tag-tipo {
-  background-color: #e6f2ff;
-  color: #0066a2;
-  padding: 5px 10px;
-  border-radius: 20px;
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+  padding: 4px 10px;
+  border-radius: 12px;
   font-size: 0.8rem;
   font-weight: bold;
 }
+
 .info-imovel h3 {
-  margin: 15px 0 5px;
+  margin: 10px 0 5px 0;
+  font-size: 1.2rem;
 }
+
 .localizacao {
-  color: #666;
-  font-size: 14px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
 }
+
 .preco {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #0066a2;
-  margin: 15px 0;
+  color: var(--primary-color);
+  margin-bottom: 15px;
 }
+
 .diaria {
-  font-size: 1rem;
-  color: #888;
+  font-size: 0.9rem;
   font-weight: normal;
+  color: var(--text-light);
 }
 
 .btn-detalhes {
   width: 100%;
   padding: 10px;
-  background: transparent;
-  border: 1px solid #0066a2;
-  color: #0066a2;
-  border-radius: 5px;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
 }
+
 .btn-detalhes:hover {
-  background: #0066a2;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
-/* ================= SEÇÃO COMO FUNCIONA ================= */
+/* ==========================================================================
+   SEÇÃO COMO FUNCIONA
+   ========================================================================== */
 .secao-como-funciona {
+  background-color: var(--white);
   padding: 80px 5%;
-  background-color: white;
   text-align: center;
 }
 
 .tag-secao {
-  color: #007bff;
+  color: var(--primary-color);
   font-weight: bold;
-  font-size: 14px;
+  font-size: 0.9rem;
   letter-spacing: 1px;
 }
 
 .secao-como-funciona h2 {
-  color: #0a192f;
-  font-size: 36px;
+  font-size: 2.2rem;
   margin: 10px 0;
 }
 
 .subtitulo-secao {
-  color: #666;
-  margin-bottom: 60px;
+  color: var(--text-light);
+  margin-bottom: 50px;
 }
 
 .container-passos {
   position: relative;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 60px auto;
 }
 
-/* Linha fina que conecta as bolinhas (somente para telas maiores) */
 .linha-conectora {
   position: absolute;
   top: 40px;
   left: 10%;
   right: 10%;
   height: 2px;
-  background-color: #d3e4f6;
+  background-color: #e0f0ff;
   z-index: 1;
 }
 
 .grid-passos {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   position: relative;
-  z-index: 2; /* Fica acima da linha */
+  z-index: 2;
 }
 
 .passo {
-  width: 22%;
-  text-align: center;
+  background-color: var(--white);
+  padding: 20px 10px;
 }
 
 .icone-passo {
   width: 80px;
   height: 80px;
-  background-color: white;
-  border: 3px solid #82c3ff;
+  background-color: var(--bg-light);
+  border: 3px solid #e0f0ff;
   border-radius: 50%;
+  margin: 0 auto 20px auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
-  font-size: 30px;
+  align-items: center;
+  font-size: 2rem;
   position: relative;
 }
 
-/* O número 01, 02 na borda do ícone */
 .badge-numero {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: #007bff;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
+  top: -5px;
+  right: -5px;
+  background-color: var(--primary-color);
+  color: var(--white);
   width: 24px;
   height: 24px;
   border-radius: 50%;
+  font-size: 0.8rem;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 .passo h3 {
+  font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #0a192f;
-  font-size: 18px;
-}
-.passo p {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.5;
 }
 
-/* Banner Azul (Call To Action) */
+.passo p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Banner de Anúncio */
 .banner-anuncio {
-  background-color: #0066a2;
-  border-radius: 15px;
+  background-color: var(--primary-color);
+  color: var(--white);
   padding: 40px;
-  margin-top: 60px;
+  border-radius: var(--border-radius);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
   text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .texto-banner h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-.texto-banner p {
-  font-size: 16px;
-  color: #d3e4f6;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .btn-branco {
-  background-color: white;
-  color: #0066a2;
+  background-color: var(--white);
+  color: var(--primary-color);
   padding: 12px 30px;
-  border-radius: 30px;
-  text-decoration: none;
+  border-radius: 25px;
   font-weight: bold;
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
+
 .btn-branco:hover {
-  background-color: #e6f2ff;
+  transform: scale(1.05);
 }
 
-/* ================= RODAPÉ ================= */
+/* ==========================================================================
+   RODAPÉ E REDES SOCIAIS
+   ========================================================================== */
 .rodape {
-  background-color: #005b9f; /* Azul profundo das imagens */
-  color: white;
-  position: relative;
-  padding-top: 60px;
-}
-
-/* Criando o detalhe arredondado no topo do rodapé usando CSS */
-.curva-rodape {
-  position: absolute;
-  top: -30px;
-  left: 0;
-  width: 100%;
-  height: 60px;
   background-color: #005b9f;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  color: var(--white);
+  padding: 60px 5% 20px 5%;
+  position: relative;
 }
 
 .conteudo-rodape {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 0 5% 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative; /* Para ficar acima da curva */
-  z-index: 2;
-}
-
-.coluna-rodape {
-  width: 22%;
-  min-width: 200px;
-}
-
-.sobre-waterhouse p {
-  font-size: 14px;
-  color: #b3d8ff;
-  margin-top: 15px;
-  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 .logo-rodape {
   height: 40px;
   filter: brightness(0) invert(1);
-} /* Mantive o filtro pensando no PNG */
-
-.redes-sociais {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
-.icone-social {
-  width: 35px;
-  height: 35px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-.icone-social:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.coluna-rodape h3 {
+.sobre-waterhouse p {
+  color: #cce0f5;
+  font-size: 0.9rem;
   margin-bottom: 20px;
-  font-size: 18px;
 }
 
-.coluna-rodape ul {
-  list-style: none;
+.rodape h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
-.coluna-rodape ul li {
-  margin-bottom: 12px;
+.rodape ul li {
+  margin-bottom: 10px;
 }
 
-.coluna-rodape ul a {
-  color: #b3d8ff;
-  text-decoration: none;
-  font-size: 14px;
+.rodape ul a {
+  color: #cce0f5;
+  font-size: 0.9rem;
   transition: color 0.3s;
 }
 
-.coluna-rodape ul a:hover {
-  color: white;
+.rodape ul a:hover {
+  color: var(--white);
 }
 
 .info-contato p {
-  color: #b3d8ff;
-  font-size: 14px;
-  margin-bottom: 12px;
+  color: #cce0f5;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
 }
 
+/* Ícones Sociais Centralizados */
+.redes-sociais {
+  display: flex;
+  gap: 15px;
+}
+
+.icone-social {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.icone-social:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.icone-social svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Direitos Autorais */
 .direitos-rodape {
-  background-color: rgba(0, 0, 0, 0.15); /* Faixa mais escura no final */
-  padding: 20px 5%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
-  color: #b3d8ff;
+  font-size: 0.85rem;
+  color: #a3cbf5;
 }
 
-/* Ajustes de responsividade rápidos */
-@media (max-width: 768px) {
-  .linha-conectora {
-    display: none;
-  }
-  .grid-passos {
-    flex-direction: column;
-    align-items: center;
-  }
-  .passo {
-    width: 80%;
-  }
-  .banner-anuncio {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
-  .conteudo-rodape {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .coluna-rodape {
-    width: 100%;
-    text-align: center;
-  }
-  .redes-sociais {
-    justify-content: center;
-  }
-  .direitos-rodape {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-}
-
-/* ================= MODAL ================= */
+/* ==========================================================================
+   MODAIS
+   ========================================================================== */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -497,17 +509,115 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
   justify-content: center;
   align-items: center;
 }
+
 .modal-conteudo {
-  background: white;
+  background-color: var(--white);
   padding: 30px;
-  border-radius: 15px;
-  width: 40%;
-  min-width: 320px;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 500px;
   position: relative;
   text-align: center;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.modal-conteudo img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.form-cadastro {
+  text-align: left;
+}
+
+.form-cadastro h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.grupo-input {
+  margin-bottom: 15px;
+}
+
+.grupo-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.grupo-input input,
+.grupo-input select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Telas menores)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .menu-navegacao {
+    display: none;
+  }
+
+  .conteudo-rodape {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .redes-sociais {
+    justify-content: center;
+  }
+
+  .grid-passos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .linha-conectora {
+    display: none;
+  }
+
+  .banner-anuncio {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .direitos-rodape {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-imovel {
+    width: 45%; /* Muda para 2 colunas em tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-passos {
+    grid-template-columns: 1fr;
+  }
+
+  .card-imovel {
+    width: 100%; /* Muda para 1 coluna no celular */
+  }
 }

@@ -6,7 +6,11 @@
 
 body {
   background-color: #f0f9ff;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
   color: #1a1a1a;
   min-height: 100vh;
 }

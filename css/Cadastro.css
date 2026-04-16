@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -16,7 +17,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 400px;
-    height: 640px;
+    min-height: 640px;
     border: none;
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.4);
@@ -24,6 +25,7 @@ body {
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    padding-bottom: 20px;
 }
 
 .container p {
@@ -34,20 +36,11 @@ body {
     font-size: 13px;
 }
 
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 4px 0;
-    display: inline-block;
-    border: 1px #A1B1C2 solid;
-    box-sizing: border-box;
-    background-color: #F0F9FF;
-    border-radius: 8px;
-}
-
-.topo{
+.topo {
     background-color: rgba(255, 255, 255, 0.3);
     width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 
 .topo h1 {
@@ -66,14 +59,37 @@ input {
     margin: 8px 0 4px 0;
 }
 
+.cadastrousuario {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
 .cadastrousuario p {
-    margin-bottom: 2px 0;
+    margin: 8px 0 2px 0;
     color: #1a1a1a;
 }
 
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px #A1B1C2 solid;
+    box-sizing: border-box;
+    background-color: #F0F9FF;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #0288D1;
+    box-shadow: 0 0 0 2px rgba(2, 136, 209, 0.15);
+}
 
 .botaocriarconta {
-    padding: 12px 63px;
+    padding: 12px 20px;
     background-color: #0288D1;
     width: 100%;
     margin-top: 8px;
@@ -84,8 +100,42 @@ input {
     border: none;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    font-weight: 600;
+}
 
-    &:hover{
-    background-color: #0277b8;        
-    }
+.botaocriarconta:hover {
+    background-color: #0277b8;
+}
+
+.linkentar {
+    margin-top: 10px;
+}
+
+.linkentar p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.linkentar a {
+    color: #0288D1;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.linkentar a:hover {
+    text-decoration: underline;
+}
+
+.mensagem-erro {
+    color: #c62828;
+    font-size: 13px;
+    margin-top: 8px;
+    min-height: 18px;
+}
+
+.mensagem-sucesso {
+    color: #2e7d32;
+    font-size: 13px;
+    margin-top: 4px;
+    min-height: 18px;
 }

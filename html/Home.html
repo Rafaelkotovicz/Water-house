@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WaterHouse - Aluguel de Imóveis</title>
     <link rel="stylesheet" href="../css/Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <header id="cabecalho">
@@ -18,10 +22,10 @@
 
       <nav class="menu-navegacao">
         <ul>
-          <li><a href="Home.html">Início</a></li>
+          <li><a href="#inicio">Início</a></li>
           <li><a href="#imoveis">Imóveis</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
 
@@ -29,7 +33,11 @@
         <a href="#" class="btn-outline" onclick="abrirModalAnuncio(event)"
           >+ Anunciar Imóvel</a
         >
-        <a href="Login.html" class="btn-primary">Entrar</a>
+        <div id="area-usuario">
+          <a href="Login.html" id="btn-login-home" class="btn-primary"
+            >Entrar</a
+          >
+        </div>
       </div>
     </header>
 
@@ -111,7 +119,7 @@
                     'Apartamento Vista Mar',
                     'Balneário Camboriú, SC',
                     'R$ 5.800',
-                    '../assets/image_418fc1.jpg',
+                    '../assets/casa1.png',
                   )
                 "
               >
@@ -129,127 +137,227 @@
           Processo rápido, seguro e transparente para encontrar seu imóvel
           ideal.
         </p>
-      </div>
-      <div class="busca">
-        <input type="text">
-        <input type="number">
-        <input type="number">
-        <input type="search">
-        <input type="submit">
-      </div>
-    </section>
-    <!--Segunda seção-->
-    <section class="secao2" id="imoveis">
-      <h2>Imóveis disponíveis</h2>
-      <div class="divCards">
-        <div
-          class="card"
-          data-titulo="Casa à beira-mar — Atalaia"
-          data-local="Aracaju, SE"
-          data-total="3200"
-        >
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa à beira-mar — Atalaia</h3>
-          <p class="card-preco">A partir de R$ 3.200 / mês</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-          <button type="button" class="btn-pagamento">Ir para pagamento</button>
+
+        <div class="container-passos">
+          <div class="linha-conectora"></div>
+
+          <div class="grid-passos">
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">01</span>🔍
+              </div>
+              <h3>Busque o imóvel</h3>
+              <p>
+                Use nossos filtros avançados para encontrar o imóvel perfeito
+                por localização, preço e tipo.
+              </p>
+            </div>
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">02</span>📞
+              </div>
+              <h3>Entre em contato</h3>
+              <p>
+                Converse diretamente com o proprietário e tire todas as suas
+                dúvidas sobre o imóvel.
+              </p>
+            </div>
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">03</span>✍️
+              </div>
+              <h3>Assine o contrato</h3>
+              <p>
+                Finalize o aluguel com segurança através de nossa plataforma com
+                contrato digital.
+              </p>
+            </div>
+            <div class="passo">
+              <div class="icone-passo">
+                <span class="badge-numero">04</span>🏠
+              </div>
+              <h3>Aproveite!</h3>
+              <p>
+                Receba as chaves e aproveite seu novo lar à beira-mar com toda a
+                tranquilidade.
+              </p>
+            </div>
+          </div>
         </div>
-        <div
-          class="card"
-          data-titulo="Apartamento vista mar"
-          data-local="Maceió, AL"
-          data-total="1850.9"
-        >
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Apartamento vista mar</h3>
-          <p class="card-preco">A partir de R$ 1.850,90 / mês</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-          <button type="button" class="btn-pagamento">Ir para pagamento</button>
+
+        <div class="banner-anuncio">
+          <div class="texto-banner">
+            <h3>Tem um imóvel para alugar?</h3>
+            <p>
+              Cadastre seu imóvel gratuitamente e alcance milhares de
+              interessados.
+            </p>
+          </div>
+          <a href="#" class="btn-branco" onclick="abrirModalAnuncio(event)"
+            >Cadastrar Agora</a
+          >
         </div>
-        <div
-          class="card"
-          data-titulo="Chalé pé na areia"
-          data-local="Porto de Galinhas, PE"
-          data-total="4100"
-        >
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Chalé pé na areia</h3>
-          <p class="card-preco">A partir de R$ 4.100 / mês</p>
+      </section>
+    </main>
+
+    <footer id="contato" class="rodape">
+      <div class="curva-rodape"></div>
+      <div class="conteudo-rodape">
+        <div class="coluna-rodape sobre-waterhouse">
+          <img
+            src="../assets/logo-water-house-removebg-preview.png"
+            alt="Logo WaterHouse"
+            class="logo-rodape"
+          />
           <p>
             Conectando pessoas aos melhores imóveis à beira-mar do Brasil com
             segurança e praticidade.
           </p>
-          <button type="button" class="btn-pagamento">Ir para pagamento</button>
+
+          <div class="redes-sociais">
+            <a href="#" class="icone-social" aria-label="Facebook">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                width="16"
+                height="16"
+                fill="currentColor"
+              >
+                <path
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="icone-social" aria-label="Instagram">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                width="16"
+                height="16"
+                fill="currentColor"
+              >
+                <path
+                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="icone-social" aria-label="X (Twitter)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                width="16"
+                height="16"
+                fill="currentColor"
+              >
+                <path
+                  d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L273.6 181.6 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div
-          class="card"
-          data-titulo="Casa com piscina"
-          data-local="Florianópolis, SC"
-          data-total="2800"
-        >
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Casa com piscina</h3>
-          <p class="card-preco">A partir de R$ 2.800 / mês</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-          <button type="button" class="btn-pagamento">Ir para pagamento</button>
+
+        <div class="coluna-rodape">
+          <h3>Navegação</h3>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#imoveis">Imóveis</a></li>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
         </div>
-        <div
-          class="card"
-          data-titulo="Kitnet econômica"
-          data-local="Salvador, BA"
-          data-total="950"
-        >
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Kitnet econômica</h3>
-          <p class="card-preco">A partir de R$ 950 / mês</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-          <button type="button" class="btn-pagamento">Ir para pagamento</button>
+
+        <div class="coluna-rodape">
+          <h3>Suporte</h3>
+          <ul>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Segurança</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
         </div>
-        <div
-          class="card"
-          data-titulo="Cobertura duplex"
-          data-local="Rio de Janeiro, RJ"
-          data-total="5200"
-        >
-          <img class="imagens" src="../assets/casa1.png" alt="" />
-          <h3>Cobertura duplex</h3>
-          <p class="card-preco">A partir de R$ 5.200 / mês</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis eos officiis placeat delectus sequi esse. Incidunt
-            nobis molestias aperiam expedita voluptatum exercitationem nulla,
-            voluptate sunt consectetur cumque laboriosam omnis perspiciatis.
-          </p>
-          <button type="button" class="btn-pagamento">Ir para pagamento</button>
+
+        <div class="coluna-rodape info-contato">
+          <h3>Contato</h3>
+          <p>📞 (11) 99999-8888</p>
+          <p>✉️ contato@waterhouse.com.br</p>
+          <p>📍 São Paulo, SP - Brasil</p>
         </div>
       </div>
-    </section>
-    <!--Terceira seção-->
-    <section class="secao3" id="como-funciona">
-      <h2>Como funciona</h2>
-      <h1>Alugue em 4 passos simples</h1>
-      <p>Processo rápido, seguro e trasnparente para encontrar seu imóvel ideal</p>
-    </section>
-    <script src="../js/home.js" defer></script>
+
+      <div class="direitos-rodape">
+        <p>&copy; 2026 Waterhouse. Todos os direitos reservados.</p>
+        <p>Feito com 🌊 para os amantes do mar</p>
+      </div>
+    </footer>
+
+    <div id="modal-imovel" class="modal-overlay">
+      <div class="modal-conteudo">
+        <span class="fechar-modal" onclick="fecharModal('modal-imovel')"
+          >&times;</span
+        >
+        <img id="modal-img" src="" alt="Foto do Imóvel" />
+        <h2 id="modal-titulo">Título</h2>
+        <p id="modal-localizacao">Localização</p>
+        <p id="modal-preco" class="preco-destaque">Preço</p>
+
+        <button
+          class="btn-primary"
+          style="width: 100%; margin-top: 15px"
+          onclick="irParaPagamento()"
+        >
+          Alugar Agora
+        </button>
+      </div>
+    </div>
+
+    <div id="modal-cadastro" class="modal-overlay">
+      <div class="modal-conteudo form-cadastro">
+        <span class="fechar-modal" onclick="fecharModal('modal-cadastro')"
+          >&times;</span
+        >
+        <h2>Cadastrar Novo Imóvel</h2>
+
+        <div class="grupo-input">
+          <label>Título do Anúncio</label>
+          <input
+            type="text"
+            id="novo-titulo"
+            placeholder="Ex: Casa com piscina"
+          />
+        </div>
+        <div class="grupo-input">
+          <label>Tipo de Imóvel</label>
+          <select id="novo-tipo">
+            <option value="Casa">Casa</option>
+            <option value="Apartamento">Apartamento</option>
+          </select>
+        </div>
+        <div class="grupo-input">
+          <label>Localização</label>
+          <input type="text" id="novo-local" placeholder="Ex: Aracaju, SE" />
+        </div>
+        <div class="grupo-input">
+          <label>Preço Mensal</label>
+          <input type="number" id="novo-preco" placeholder="Ex: 3500" />
+        </div>
+        <div class="grupo-input">
+          <label>Foto do Imóvel</label>
+          <input type="file" id="novo-img" accept="image/*" />
+        </div>
+
+        <button
+          class="btn-primary"
+          style="width: 100%; margin-top: 15px"
+          onclick="criarAnuncio()"
+        >
+          Publicar Anúncio
+        </button>
+      </div>
+    </div>
+
+    <script src="../js/Home.js"></script>
   </body>
 </html>

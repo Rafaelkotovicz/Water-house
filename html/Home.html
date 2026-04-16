@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WaterHouse - Aluguel de Imóveis</title>
     <link rel="stylesheet" href="../css/Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <header id="cabecalho">
@@ -29,7 +33,11 @@
         <a href="#" class="btn-outline" onclick="abrirModalAnuncio(event)"
           >+ Anunciar Imóvel</a
         >
-        <a href="Login.html" class="btn-primary">Entrar</a>
+        <div id="area-usuario">
+          <a href="Login.html" id="btn-login-home" class="btn-primary"
+            >Entrar</a
+          >
+        </div>
       </div>
     </header>
 
@@ -111,7 +119,7 @@
                     'Apartamento Vista Mar',
                     'Balneário Camboriú, SC',
                     'R$ 5.800',
-                    '../assets/image_418fc1.jpg',
+                    '../assets/casa1.png',
                   )
                 "
               >
@@ -220,7 +228,6 @@
                 />
               </svg>
             </a>
-
             <a href="#" class="icone-social" aria-label="Instagram">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -234,7 +241,6 @@
                 />
               </svg>
             </a>
-
             <a href="#" class="icone-social" aria-label="X (Twitter)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -296,7 +302,12 @@
         <h2 id="modal-titulo">Título</h2>
         <p id="modal-localizacao">Localização</p>
         <p id="modal-preco" class="preco-destaque">Preço</p>
-        <button class="btn-primary" style="width: 100%; margin-top: 15px">
+
+        <button
+          class="btn-primary"
+          style="width: 100%; margin-top: 15px"
+          onclick="irParaPagamento()"
+        >
           Alugar Agora
         </button>
       </div>
@@ -333,12 +344,8 @@
           <input type="number" id="novo-preco" placeholder="Ex: 3500" />
         </div>
         <div class="grupo-input">
-          <label>URL da Imagem</label>
-          <input
-            type="text"
-            id="novo-img"
-            placeholder="Link da foto (Opcional)"
-          />
+          <label>Foto do Imóvel</label>
+          <input type="file" id="novo-img" accept="image/*" />
         </div>
 
         <button

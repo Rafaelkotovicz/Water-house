@@ -71,6 +71,7 @@ ul {
 .botoes-acao {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .btn-outline {
@@ -105,7 +106,6 @@ ul {
    SEÇÃO HERO (INÍCIO) - COM SOMBRAS NO TEXTO
    ========================================================================== */
 .secao-hero {
-  /* Lembre-se de verificar se o nome da sua imagem está correto aqui! */
   background-image: url("../assets/secao1.1.png");
   background-size: cover;
   background-position: center;
@@ -126,14 +126,12 @@ ul {
   border-radius: 20px;
   font-size: 0.9rem;
   margin-bottom: 20px;
-  /* Sombra para facilitar a leitura */
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .conteudo-hero h1 {
   font-size: 3rem;
   margin-bottom: 15px;
-  /* Sombra para facilitar a leitura */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -141,7 +139,6 @@ ul {
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 30px auto;
-  /* Sombra para facilitar a leitura */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
@@ -196,7 +193,6 @@ ul {
 }
 
 .grid-imoveis {
-  /* Usando Flexbox para alinhar os cards lado a lado */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -209,8 +205,6 @@ ul {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform 0.3s;
-
-  /* Tamanho de 30% para caberem 3 lado a lado com segurança */
   width: 30%;
   min-width: 300px;
 }
@@ -608,7 +602,7 @@ ul {
   }
 
   .card-imovel {
-    width: 45%; /* Muda para 2 colunas em tablets */
+    width: 45%;
   }
 }
 
@@ -618,6 +612,26 @@ ul {
   }
 
   .card-imovel {
-    width: 100%; /* Muda para 1 coluna no celular */
+    width: 100%;
   }
+}
+
+/* ==========================================================================
+   NOVOS ESTILOS: PERFIL DO USUÁRIO LOGADO
+   ========================================================================== */
+.perfil-logado {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.link-sair {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.link-sair:hover {
+  color: #e11d48;
 }

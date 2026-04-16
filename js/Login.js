@@ -1,74 +1,111 @@
-// Mostrar/esconder senha
-const inputSenha = document.querySelector('input[type="password"]');
+// ==========================================
+// 1. SELEÇÃO DE ELEMENTOS E DADOS
+// ==========================================
+const inputSenha = document.getElementById("senha");
+const inputEmail = document.getElementById("email");
+const botaoEntrar = document.querySelector(".BotaoEntrar");
 
-const botaoOlho = document.createElement('button');
-botaoOlho.type = 'button';
-botaoOlho.innerHTML = '<i class="fa-solid fa-eye"></i>';
-botaoOlho.classList.add('botao-olho');
+const usuarioMockado = {
+  email: "trabalho@hotmail.com",
+  senha: "123456789",
+};
 
-inputSenha.parentNode.appendChild(botaoOlho);
+// Preenche os campos iniciais
+if (inputEmail && inputSenha) {
+  inputEmail.value = usuarioMockado.email;
+  inputSenha.value = usuarioMockado.senha;
+}
 
-botaoOlho.addEventListener('click', function () {
-    if (inputSenha.type === 'password') {
-        inputSenha.type = 'text';
-        botaoOlho.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+// ==========================================
+// 2. LÓGICA DO OLHO (MOSTRAR/ESCONDER SENHA)
+// ==========================================
+const passwordWrapper = document.createElement("div");
+passwordWrapper.classList.add("password-input-wrapper");
+
+if (inputSenha) {
+  inputSenha.parentNode.insertBefore(passwordWrapper, inputSenha);
+  passwordWrapper.appendChild(inputSenha);
+
+  const botaoOlho = document.createElement("button");
+  botaoOlho.type = "button";
+  botaoOlho.innerHTML = '<i class="fa-solid fa-eye"></i>';
+  botaoOlho.classList.add("botao-olho-interno");
+  passwordWrapper.appendChild(botaoOlho);
+
+  botaoOlho.addEventListener("click", function () {
+    if (inputSenha.type === "password") {
+      inputSenha.type = "text";
+      botaoOlho.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
     } else {
-        inputSenha.type = 'password';
-        botaoOlho.innerHTML = '<i class="fa-solid fa-eye"></i>';
+      inputSenha.type = "password";
+      botaoOlho.innerHTML = '<i class="fa-solid fa-eye"></i>';
     }
-});
+  });
+}
 
+// ==========================================
+// 3. VALIDAÇÃO E ALERTAS DE LOGIN
+// ==========================================
+if (botaoEntrar) {
+  botaoEntrar.addEventListener("click", function (event) {
+    event.preventDefault();
 
-// Validação e envio do formulário
-const botaoEntrar = document.querySelector('.BotaoEntrar');
-const inputEmail = document.querySelector('input[type="email"]');
-
-botaoEntrar.addEventListener('click', function () {
     const email = inputEmail.value.trim();
     const senha = inputSenha.value.trim();
 
-    // Remove mensagens de erro anteriores
-    document.querySelectorAll('.mensagem-erro').forEach(e => e.remove());
+    // Limpa mensagens de erro anteriores
+    document.querySelectorAll(".mensagem-erro").forEach((e) => e.remove());
 
     let temErro = false;
 
-    // Campos vazios
-    if (email === '') {
-        mostrarErro(inputEmail, 'O campo de email é obrigatório.');
-        temErro = true;
-    } else if (!validarEmail(email)) {
-        // Validar formato do email
-        mostrarErro(inputEmail, 'Digite um email válido.');
-        temErro = true;
+    // Validação do E-mail (Presença de @)
+    if (email === "") {
+      mostrarErro(inputEmail, "O campo de e-mail é obrigatório.");
+      temErro = true;
+    } else if (!email.includes("@")) {
+      mostrarErro(inputEmail, 'E-mail inválido: falta o símbolo "@".');
+      temErro = true;
     }
 
-    if (senha === '') {
-        mostrarErro(inputSenha, 'O campo de senha é obrigatório.');
-        temErro = true;
-    } else if (senha.length < 6) {
-        // Validar tamanho mínimo da senha
-        mostrarErro(inputSenha, 'A senha deve ter pelo menos 6 caracteres.');
-        temErro = true;
+    // Validação da Senha (Vazia)
+    if (senha === "") {
+      mostrarErro(passwordWrapper, "O campo de senha é obrigatório.");
+      temErro = true;
     }
 
-    // Redirecionar se não tiver erros
+    // SE O FORMATO ESTIVER OK, VALIDA AS CREDENCIAIS
     if (!temErro) {
-        window.location.href = '#';
+      if (email === usuarioMockado.email && senha === usuarioMockado.senha) {
+        // SUCESSO! Registramos no navegador que ele está logado.
+        localStorage.setItem("logado", "true");
+        window.location.href = "home.html";
+      } else {
+        // ALERTA DE CREDENCIAIS INVÁLIDAS
+        mostrarErro(
+          botaoEntrar,
+          "E-mail ou senha incorretos. Tente novamente.",
+        );
+
+        // Feedback visual: bordas vermelhas temporárias
+        inputEmail.style.borderColor = "#e11d48";
+        inputSenha.style.borderColor = "#e11d48";
+
+        // Remove a borda vermelha após 2 segundos
+        setTimeout(() => {
+          inputEmail.style.borderColor = "";
+          inputSenha.style.borderColor = "";
+        }, 2000);
+      }
     }
-});
-
-
-// Função para mostrar mensagem de erro abaixo do input
-function mostrarErro(input, mensagem) {
-    const erro = document.createElement('span');
-    erro.classList.add('mensagem-erro');
-    erro.textContent = mensagem;
-    input.parentNode.insertBefore(erro, input.nextSibling);
+  });
 }
 
-
-// Função para validar formato do email
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+// ==========================================
+// 4. FUNÇÕES AUXILIARES
+// ==========================================
+function mostrarErro(elementoAlvo, mensagem) {
+  const erro = document.createElement("span");
+  erro.classList.add("mensagem-erro");
+  erro.textContent = mensagem;
+  elementoAlvo.parentNode.insertBefore(erro, elementoAlvo.nextSibling);
 }
